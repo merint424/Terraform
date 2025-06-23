@@ -47,8 +47,8 @@ resource "aws_security_group" "web_sg" {
 
 # Public EC2 instance with NGINX
 resource "aws_instance" "public_vm" {
-  ami                    = "ami-0c02fb55956c7d316"
-  instance_type          = "t2.micro"
+  ami                    = "ami-042b4708b1d05f512"
+  instance_type          = "t3.micro"
   subnet_id              = var.public_subnet_id
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.web_sg.id]
@@ -68,8 +68,8 @@ resource "aws_instance" "public_vm" {
 
 # Private EC2 instance
 resource "aws_instance" "private_vm" {
-  ami                    = "ami-0c02fb55956c7d316"
-  instance_type          = "t2.micro"
+  ami                    = "ami-042b4708b1d05f512"
+  instance_type          = "t3.micro"
   subnet_id              = var.private_subnet_id
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.web_sg.id]
